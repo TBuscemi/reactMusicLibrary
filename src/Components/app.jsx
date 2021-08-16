@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MusicDisplayTable from './table/table';
 import './app.css'
+import MusicCreateForm from './musicForm/musicForm';
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
         this.makeGetRequest();
     }
     componentDidMount (){
-        axios.get("http://127.0.0.1:8000/music/")
+        axios.get("http://127.0.0.1:8000/musicapp/")
         .then(response => this.setState({
             data : response.data
         }));
@@ -25,7 +26,7 @@ class App extends Component {
 
     async makeGetRequest(){
         try{
-            let response = await axios.get("http://127.0.0.1:8000/music/")
+            let response = await axios.get("http://127.0.0.1:8000/musicapp/")
             console.log(response.data)
         }
         catch(ex){
@@ -48,6 +49,7 @@ class App extends Component {
               <h1>{}</h1>
               <button onClick = {this.makeGetRequest}>Make Call</button>
               <MusicDisplayTable data={this.state.data}/>
+              <MusicCreateForm/>
             </div>
         )
 
