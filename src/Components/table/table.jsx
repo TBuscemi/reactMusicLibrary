@@ -9,10 +9,10 @@ const MusicDisplayTable = (props) => {
       <table>
         <thead>
           <tr>
-            <th>title</th>
-            <th>artist</th>
-            <th>album</th>
-            <th>release date</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Release Date</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +22,7 @@ const MusicDisplayTable = (props) => {
               <td>{data.artist}</td>
               <td>{data.album}</td>
               <td>{data.release_date}</td>
+              <button>Delete</button>
           </tr>))}
         </tbody>
       </table>

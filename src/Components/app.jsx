@@ -34,15 +34,6 @@ class App extends Component {
         }
     }
     
-    // displayData = (data) => {
-    //     return(
-    //         <div>
-    //             <h1>{data}</h1>
-    //         </div>
-    //     )
-    // }
-    
-    
     render(){
         return(
             <div>
