@@ -1,14 +1,54 @@
-import { render } from '@testing-library/react';
-import { Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import MusicDisplayTable from './table/table';
+import './app.css'
+
 
 class App extends Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            data: []
+        };
+
     }
+    componentDidMount(){
+        this.makeGetRequest();
+    }
+    componentDidMount (){
+        axios.get("http://127.0.0.1:8000/music/")
+        .then(response => this.setState({
+            data : response.data
+        }));
+    
+    }
+
+    async makeGetRequest(){
+        try{
+            let response = await axios.get("http://127.0.0.1:8000/music/")
+            console.log(response.data)
+        }
+        catch(ex){
+            console.log("error in api call");
+        }
+    }
+    
+    // displayData = (data) => {
+    //     return(
+    //         <div>
+    //             <h1>{data}</h1>
+    //         </div>
+    //     )
+    // }
+    
+    
     render(){
         return(
-            <h1> testing</h1>
+            <div>
+              <h1>{}</h1>
+              <button onClick = {this.makeGetRequest}>Make Call</button>
+              <MusicDisplayTable data={this.state.data}/>
+            </div>
         )
 
     }
