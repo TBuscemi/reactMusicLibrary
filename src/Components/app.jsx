@@ -17,7 +17,7 @@ class App extends Component {
         this.makeGetRequest();
     }
     componentDidMount (){
-        axios.get("http://127.0.0.1:8000/musicapp/")
+        axios.get("http://127.0.0.1:8000/music/")
         .then(response => this.setState({
             data : response.data
         }));
@@ -26,7 +26,7 @@ class App extends Component {
 
     async makeGetRequest(){
         try{
-            let response = await axios.get("http://127.0.0.1:8000/musicapp/")
+            let response = await axios.get("http://127.0.0.1:8000/music/")
             console.log(response.data)
         }
         catch(ex){
