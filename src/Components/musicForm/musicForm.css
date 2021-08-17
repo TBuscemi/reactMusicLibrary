@@ -1,5 +1,12 @@
+
 form{
-    align-content: center;
-    color: rgb(255, 255, 255);
-    background-color: black;
+
+ display: inline-flex;
+    margin: 10%;
+    clear: left;
+    width: 250px;
+    text-align: left;
+    padding-left: 20%;
+    font-family: arial, sans-serif;
+    font-size: large;
 }

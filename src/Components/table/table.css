@@ -2,9 +2,11 @@ table {
     font-family: arial, sans-serif;
     border: black;
     width: 100%;
+    margin-left: 18%;
   }
   
   td, th {
+    font-size: large;
     text-align: left;
     padding: 8px;
   }
