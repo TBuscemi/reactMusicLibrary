@@ -35,8 +35,7 @@ class App extends Component {
     
     async addSongRequest(newSong){ 
       try{
-        let response = await axios.post("http://127.0.0.1:8000/music/", newSong)
-        response = await this.makeGetRequest()
+        await axios.post("http://127.0.0.1:8000/music/", newSong)
       }
       catch(ex){
           console.log("something broke in addSongRequest")
