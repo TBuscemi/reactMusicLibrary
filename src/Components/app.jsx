@@ -15,17 +15,23 @@ class App extends Component {
     componentDidMount(){
       this.makeGetRequest();
     }
-    componentDidMount (){
-      axios.get("http://127.0.0.1:8000/music/")
-      .then(response => this.setState({
-        data : response.data
-      }));
-    
-    }
+    deleteSong = (songID) => {
+        axios.delete("http://127.0.0.1:8000/music/"+songID+"/")
+          .then(response => {
+            if(response.data != null) {
+              alert("Song deleted successfully.");
+              this.makeGetRequest()
+            }
+          });
+          
+      };
 
     async makeGetRequest(){
         try{
           let response = await axios.get("http://127.0.0.1:8000/music/")
+          this.setState({
+            data : response.data
+          });
           console.log(response.data)
         }
         catch(ex){
@@ -48,7 +54,7 @@ class App extends Component {
     render(){
       return(
         <div>
-          <MusicDisplayTable data={this.state.data}/>
+          <MusicDisplayTable delete ={this.deleteSong} data={this.state.data}/>
           <MusicCreateForm  addSongRequest={this.addSongRequest}/>
         </div>
       )
