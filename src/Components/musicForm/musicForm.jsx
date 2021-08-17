@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './musicForm.css';
 import '../app';
-import axios from 'axios';
 
 class MusicCreateForm extends Component {
     constructor(props) {
@@ -20,25 +19,23 @@ class MusicCreateForm extends Component {
     }
 
     handleSubmit = (event) => {
-    event.preventDefault()
-    alert(`
-          Title: ${this.state.title} 
-          Artist: ${this.state.artist} 
-          Album: ${this.state.album}
-          Release Date: ${this.state.release_date}` 
-        )
-        return axios.post("http://127.0.0.1:8000/music/")
-        .then(response => this.setState({
-            title:this.state.title,
-            artist:this.state.artist,
-            album:this.state.album,
-            release_date:this.state.release_date
-
-        }))
+    event.preventDefault();
+    const newSong = {
+      title: this.state.title,
+      album: this.state.album,
+      artist: this.state.artist,
+      release_date: this.state.release_date
+    }
+    this.props.addSongRequest(newSong);
+    this.setState({
+      title: '',
+      album: '',
+      artist: '',
+      release_date: ''
+    });
     }
   
-
-  render() {
+    render() {
     return (
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <div>
