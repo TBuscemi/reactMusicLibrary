@@ -34,11 +34,18 @@ class App extends Component {
         }
     }
     
+
+
+
+
+
+
+    
+    
     render(){
         return(
             <div>
               <h1>{}</h1>
-              <button onClick = {this.makeGetRequest}>Make Call</button>
               <MusicDisplayTable data={this.state.data}/>
               <MusicCreateForm/>
             </div>

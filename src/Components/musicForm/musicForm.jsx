@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import './musicForm.css';
 import '../app';
-
-
-
-
-
-
-
+import axios from 'axios';
 
 class MusicCreateForm extends Component {
-    state = { 
+    constructor(props) {
+      super(props);
+      this.state = { 
       title: '',
       artist: '',
       album: '',
-      release_date: null
+      release_date: ''
     }
-
+}
     handleChange = (event) => {
       this.setState({
         [event.target.name]: event.target.value
@@ -29,9 +25,16 @@ class MusicCreateForm extends Component {
           Title: ${this.state.title} 
           Artist: ${this.state.artist} 
           Album: ${this.state.album}
-          Release Date: ${this.state.release_date}
-          `)
+          Release Date: ${this.state.release_date}` 
+        )
+        return axios.post("http://127.0.0.1:8000/music/")
+        .then(response => this.setState({
+            title:this.state.title,
+            artist:this.state.artist,
+            album:this.state.album,
+            release_date:this.state.release_date
 
+        }))
     }
   
 
@@ -39,20 +42,20 @@ class MusicCreateForm extends Component {
     return (
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <div>
-            <label>title:</label>
+            <label for= "title" >title:</label>
             <input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
           </div>
           <div>
-            <label>Artist:</label>
+            <label for= "artist">Artist:</label>
             <input type="text" name="artist" onChange={this.handleChange} value={this.state.artist} />
           </div>
           <div>
-            <label>Album:</label>
+            <label for= "album">Album:</label>
             <input type="text" name="album" onChange={this.handleChange} value={this.state.album} />
           </div>
           <div>
-              <label>Release Date</label>
-              <input type="int" name="release_date" onChange={this.handleChange} value={this.state.release_date} />  
+              <label for= "release_date">Release Date</label>
+              <input type="date" name="release_date" onChange={this.handleChange} value={this.state.release_date} />  
           </div>
 
           <button type="submit">Submit!</button>
