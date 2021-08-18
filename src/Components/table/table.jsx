@@ -7,6 +7,8 @@ import '../app';
 
 const MusicDisplayTable = (props) => {
     return ( 
+      <div>
+      <h1>PlayList!</h1>
       <table>
         <thead>
           <tr>
@@ -27,6 +29,7 @@ const MusicDisplayTable = (props) => {
           </tr>))}
         </tbody>
       </table>
+      </div>
     );
 }
 export default MusicDisplayTable;

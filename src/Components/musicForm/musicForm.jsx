@@ -37,6 +37,8 @@ class MusicCreateForm extends Component {
   
     render() {
     return (
+      <div>
+        <h1>Add A Song To The PlayList</h1>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <div>
             <label for= "title" >title:</label>
@@ -55,9 +57,9 @@ class MusicCreateForm extends Component {
               <input type="date" name="release_date" onChange={this.handleChange} value={this.state.release_date} />  
           </div>
 
-          <button type="submit">Submit!</button>
+          <button type="submit">ADD SONG!!</button>
         </form>
-      
+      </div>
     )
   }
 }

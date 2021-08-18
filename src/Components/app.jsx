@@ -3,6 +3,7 @@ import axios from 'axios';
 import MusicDisplayTable from './table/table';
 import './app.css'
 import MusicCreateForm from './musicForm/musicForm';
+import Filter from './filter/filter';
 
 class App extends Component {
     constructor(props){
@@ -39,16 +40,15 @@ class App extends Component {
         }
     }
     
-    async addSongRequest(newSong){ 
-      try{
-        await axios.post("http://127.0.0.1:8000/music/", newSong)
-      }
-      catch(ex){
-          console.log("something broke in addSongRequest")
-      }
-    } 
+    addSongRequest = async (newSong) => { 
+      await axios.post("http://127.0.0.1:8000/music/", newSong)
+      let response = await this.makeGetRequest()
+        if(response === undefined){
+            this.setState({
 
-
+            });
+        }
+    }
 
 
     render(){

@@ -1,8 +1,12 @@
 table {
     font-family: arial, sans-serif;
     border: black;
-    width: 100%;
-    margin-left: 18%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-style: solid;
+    
+
   }
   
   td, th {
@@ -13,4 +17,9 @@ table {
 
 .button1 {
   background-color: red;
+
+}
+
+h1{
+  
 }
